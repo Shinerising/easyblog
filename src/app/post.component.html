@@ -1,0 +1,39 @@
+<article itemscope itemtype="http://schema.org/Article">
+<header>
+	<div class="container">
+		<div class="article-header">
+			<h1>{{ header }}</h1>
+			<div class="article-control float-right">
+				<a class="button float-right" routerLink="/">返回主页</a>
+				<a class="button float-right" target="_blank" rel="noopener" href="{{ url }}">查看原始文档</a>
+			</div>
+			<div class="article-meta">
+				<span *ngIf="avatar"><img src="{{ avatar }}"></span>
+				<span>{{ author }}</span>
+				<span>{{ updateTime | date:'mediumDate' }}</span>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="container">
+	<section class="article">
+		<div class="content-text" [innerHTML]="html | sanitizeHTML" itemprop="articleBody"></div>
+		<div class="article-control-bottom">
+			<a class="button" routerLink="/">返回主页</a>
+			<a class="button" href="{{ url }}">查看原始文档</a>
+		</div>
+	</section>
+	<section class="article" *ngIf="!html">
+		<div>
+			<p class="loading">
+			</p>
+			<p>
+				<span class="loading"></span>
+				<span class="loading"></span>
+				<span class="loading"></span>
+				<span class="loading"></span>
+			</p>
+		</div>
+	</section>
+</div>
+</article>
