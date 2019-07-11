@@ -185,10 +185,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/core@^8.1.1":
-  version "8.1.1"
-  resolved "https://registry.npm.taobao.org/@angular/core/download/@angular/core-8.1.1.tgz#888fb879906a46429ddac7163fe25915ce5a7f8f"
-  integrity sha1-iI+4eZBqRkKd2scWP+JZFc5af48=
+"@angular/core@8.0.3":
+  version "8.0.3"
+  resolved "https://registry.npm.taobao.org/@angular/core/download/@angular/core-8.0.3.tgz#f8a73cbeccce482261949190f1d15d4b0be3c1f2"
+  integrity sha1-+Kc8vszOSCJhlJGQ8dFdSwvjwfI=
   dependencies:
     tslib "^1.9.0"
 
