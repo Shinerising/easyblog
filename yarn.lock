@@ -4095,6 +4095,11 @@ lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5:
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha1-s56mIp72B+zYniyN8SU2iRysm40=
 
+lodash@^4.17.14:
+  version "4.17.14"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.14.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
+  integrity sha1-nOSHrmbJYlT+ILWZ8htoFgKAeLo=
+
 log4js@^4.0.0:
   version "4.4.0"
   resolved "https://registry.npm.taobao.org/log4js/download/log4js-4.4.0.tgz?cache=0&sync_timestamp=1561567642049&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flog4js%2Fdownload%2Flog4js-4.4.0.tgz#3da357d98848596c0ef193f6153ca29d23209217"
