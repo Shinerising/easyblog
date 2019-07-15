@@ -3,12 +3,12 @@ export interface Commit {
     commitUrl: string,
     committedDate: Date,
     committer: {
-      name:string,
-      email:string,
-      avatarUrl:string,
-      date:Date
+      name: string,
+      email: string,
+      avatarUrl: string,
+      date: Date
     }
-  }
+  };
 }
 export interface Commits {
   repo: {
@@ -17,5 +17,5 @@ export interface Commits {
         edges: Array<Commit>
       }
     }
-  }
+  };
 }

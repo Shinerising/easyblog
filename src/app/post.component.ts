@@ -1,15 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { HttpService } from './service/http.service'
+import { HttpService } from './service/http.service';
 import { Title } from '@angular/platform-browser';
-import { Content, Contents } from './interface/content.interface';
 import { Commits, Commit } from './interface/commit.interface';
-import { FileNamePipe } from './pipe/filename.pipe'
-import { Config } from './class/config.class';
+import { FileNamePipe } from './pipe/filename.pipe';
 import { Apollo } from 'apollo-angular';
+import { AppConfig } from './class/config.class';
+import { MarkDownService } from './service/markdown.service';
 import gql from 'graphql-tag';
-import * as marked from 'marked';
 
 @Component({
   selector: 'app-post',
@@ -19,42 +18,45 @@ import * as marked from 'marked';
 export class PostComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
-  public commitList:Array<Commit>;
+  public commitList: Array<Commit>;
   public header: string;
-  public author: string = "获取中...";
+  public author: string;
   public updateTime: Date;
-  public url:string;
-  public html:string;
-  public email:string;
-  public avatar:string;
+  public url: string;
+  public html: string;
+  public email: string;
+  public avatar: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpService,
     private title: Title,
-    private apollo: Apollo) {
+    private apollo: Apollo,
+    private markdown: MarkDownService,
+    private config: AppConfig) {
   }
 
   ngOnInit(): void {
     this.subscription = this.route.fragment.subscribe(fragment => {
-      if(fragment===null){
+      if (fragment === null) {
         this.router.navigateByUrl('');
       } else {
         this.header = new FileNamePipe().transform(fragment);
         this.title.setTitle(this.header);
-        this.LoadCommits(fragment)
-        this.LoadArticle(fragment)
+        this.LoadCommits(fragment);
+        this.LoadArticle(fragment);
       }
     });
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  private async LoadCommits(file:string) {
-    let response = await this.apollo.query<Commits>({query : gql(Config.Instance.getCommitQuery(file))}).toPromise();
-    let commits:Commits = response.data;
+  private async LoadCommits(file: string) {
+    const response = await this.apollo.query<Commits>({query : gql(this.config.getCommitQuery(file))}).toPromise();
+    const commits: Commits = response.data;
     this.commitList = commits.repo.content.history.edges;
     this.author = this.commitList[0].commit.committer.name;
     this.updateTime = this.commitList[0].commit.committer.date;
@@ -64,11 +66,8 @@ export class PostComponent implements OnInit, OnDestroy {
     this.url = this.commitList[0].commit.commitUrl;
   }
 
-  private async LoadArticle(file:string) {
-    let data:string = await this.http.getMarkdown(Config.Instance.getMarkDownURL(file));
-    marked.setOptions({
-      baseUrl: Config.Instance.getRAWRoot
-    })
-    this.html = marked(data);
+  private async LoadArticle(file: string) {
+    const data = await this.http.getMarkdown(this.config.getMarkDownURL(file));
+    this.html = this.markdown.render(data);
   }
 }

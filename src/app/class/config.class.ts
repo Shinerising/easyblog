@@ -1,19 +1,34 @@
-export class Config {
-  public static Instance:Config;
+import { Injectable, Injector } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-  public User:string;
-  public Repo:string;
-  public Path:string;
-  public Title:string;
-  public RAWRoot:string = `https://gitcdn.xyz/cdn`;
-  
-  public getMarkDownURL(filename:string = ''):string{
+export interface Config {
+  User: string;
+  Repo: string;
+  Path: string;
+  Title: string;
+  RAWRoot: string;
+  Theme: string;
+}
+
+@Injectable()
+export class AppConfig implements Config {
+  public User: string;
+  public Repo: string;
+  public Path: string;
+  public Title = 'Blog';
+  public RAWRoot = `https://raw.githubusercontent.com`;
+  public Theme: string;
+
+  public getMarkDownURL(filename: string = ''): string {
     return `${this.RAWRoot}/${this.User}/${this.Repo}/master/${this.Path}/${filename}`;
   }
-  public get getRAWRoot():string{
+  public getRAWRoot(): string {
     return `${this.RAWRoot}/${this.User}/${this.Repo}/master/${this.Path}/`;
   }
-  public getContentQuery():string{
+  public getRepoURL(): string {
+    return `https://github.com/${this.User}/${this.Repo}`;
+  }
+  public getContentQuery(): string {
     return `
       query getContent {
         repo:repository(owner: "${this.User}", name: "${this.Repo}") {
@@ -29,13 +44,14 @@ export class Config {
       }
     `;
   }
-  public getCommitQuery(file:string):string{
+  public getCommitQuery(file: string): string {
+    const path = this.Path ? this.Path + '/' + file : file;
     return `
       query getCommit {
         repo:repository(owner: "${this.User}", name: "${this.Repo}") {
           content: object(expression: "master") {
             ... on Commit {
-              history(path: "${this.Path}/${file}", first:1) {
+              history(path: "${path}", first:1) {
                 edges {
                   commit: node {
                     commitUrl
@@ -55,5 +71,18 @@ export class Config {
       }
     `;
   }
-}
 
+  constructor(private injector: Injector) {
+  }
+
+  public async loadConfig() {
+      const http = this.injector.get(HttpClient);
+      const config = await http.get<Config>('./assets/config.json').toPromise();
+      this.User = config.User || this.User;
+      this.Repo = config.Repo || config.Repo;
+      this.Path = config.Path || config.Path;
+      this.Title = config.Title || config.Title;
+      this.RAWRoot = config.RAWRoot || config.RAWRoot;
+      this.Theme = config.Theme || config.Theme;
+  }
+}

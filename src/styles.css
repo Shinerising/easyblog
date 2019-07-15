@@ -22,9 +22,7 @@ header.global {
   width: 100%;
   height: 5rem;
   padding: 1rem 0;
-  background-color: #FAFAFA;
   box-sizing: border-box;
-  z-index: 100000;
   overflow: hidden;
 }
 
@@ -56,17 +54,30 @@ header.global {
   }
 }
 
-.poweredby {
-  padding: .5rem;
-  line-height: 4rem;
-  font-size: .9rem;
+footer.global{
   text-align: center;
+  padding:1rem 0;
 }
 
-.poweredby>a>img {
+.footer-item {
   display: inline-block;
-  vertical-align: middle;
-  height: 1.8rem;
+  padding: .5rem;
+  line-height: 2rem;
+  font-size: .9rem;
+  filter: grayscale();
+  opacity: .4;
+  transition: filter .3s, opacity .3s;
+}
+
+.footer-item:hover {
+  filter: none;
+  opacity: 1;
+}
+
+.footer-item>a>img {
+  display: inline-block;
+  vertical-align: top;
+  height: 2rem;
 }
 
 .container {
@@ -90,21 +101,29 @@ header.global {
 }
 
 .loading {
-  background: linear-gradient(90deg, transparent, #FAFAFA, transparent);
+  background: linear-gradient(90deg, transparent, #EAEAEA, transparent);
   background-size: 300% 300%;
   animation: loading 3s ease infinite;
 }
 
 @keyframes loading {
-    0%{background-position:0% 50%}
-    100%{background-position:150% 50%}
+    0%{background-position:0% 0%}
+    100%{background-position:150% 0%}
+}
+
+.fade-in {
+  mask: linear-gradient(90deg, black, black, transparent, transparent);
+  mask-size: 300% 300%;
+  animation: fade-in .3s;
+}
+
+@keyframes fade-in {
+    0%{mask-position:100% 0%}
+    100%{mask-position:0% 0%}
 }
 
 p {
-  word-break: break-all;
-  line-height: 1.8;
   margin: 2rem 0;
-  text-align: justify;
 }
 
 p.loading {
@@ -246,10 +265,16 @@ input:disabled {
   width:100%;
 }
 
+.article-text{
+  word-break: break-all;
+  line-height: 1.8;
+  text-align: justify;
+}
+
 h1,
 h2,
 h3 {
-  margin: 1rem 0;
+  margin: 2rem 0;
   font-size: 2em;
   line-height: 150%;
 }
@@ -322,7 +347,7 @@ table{
   border-collapse: collapse;
 }
 
-.content-text > table{
+.article-text > table{
   margin-left: -1rem;
   margin-right: -1rem;
 }
@@ -367,10 +392,6 @@ kbd{
 
 :focus {
   outline:none;
-}
-
-.fade-in, .fadeIn {
-  animation: fade-in .5s both;
 }
 
 .float-right {
@@ -422,10 +443,15 @@ kbd{
 .article-header{
   margin:1rem 0;
 }
+.article-header>h1{
+  margin:0 0 1rem 0;
+}
 .article-meta {
+  display: inline-block;
   font-size:.9rem;
   line-height: 2rem;
   height: 2rem;
+  padding: 1px;
 }
 .article-meta>span {
   margin-right: .8rem;
@@ -443,26 +469,6 @@ kbd{
 .article-control-bottom{
   text-align: center;
   display: none;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes drop-fade-in {
-  from {
-    transform: scale(1.2, 1.2);
-    opacity: 0
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
 }
 
 @media only screen and (min-width: 5121px) {
@@ -551,19 +557,11 @@ kbd{
     width: 100%;
     border-radius: 0;
   }
-  aside {
-    margin-right: 0;
-    width: 100%;
-  }
   .container {
     padding: 0 5rem;
   }
   .container.main {
     display: block;
-  }
-  #body {
-    padding-top: 2rem;
-    min-height: calc(100vh - 22rem);
   }
 }
 
@@ -571,10 +569,105 @@ kbd{
   .container {
     padding: 0 1rem;
   }
-.article-control{
-  display: none;
+  .article-control{
+    display: none;
+  }
+  .article-control-bottom{
+    display: block;
+  }
 }
-.article-control-bottom{
+
+.hljs {
   display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
 }
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
 }
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+

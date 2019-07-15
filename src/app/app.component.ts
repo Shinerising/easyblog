@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import * as marked from 'marked';
-import { Contents } from './interface/content.interface';
-import { Config } from './class/config.class'
+import { Component, Inject } from '@angular/core';
+import { AppConfig } from './class/config.class';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +8,19 @@ import { Config } from './class/config.class'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public header:string = '';
+  public header: string;
+  public url: string;
 
-  constructor() {
-      Config.Instance = new Config();
-      Config.Instance.User = "Shinerising";
-      Config.Instance.Repo = "MyArticles";
-      Config.Instance.Path = "Articles";
-      Config.Instance.Title = 'Apollo\'s Blog';
-
-      this.header = Config.Instance.Title;
+  constructor(
+    @Inject(DOCUMENT) private document,
+    private config: AppConfig) {
+      this.header = config.Title;
+      this.url = config.getRepoURL();
+      if (config.Theme) {
+        const link: HTMLLinkElement = this.document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', `./assets/${config.Theme}.css`);
+        this.document.head.appendChild(link);
+      }
   }
 }

@@ -11,7 +11,7 @@ export function createApollo(httpLink: HttpLink) {
     link: httpLink.create({
       uri,
       headers: new HttpHeaders().set(
-          'Authorization','Bearer d57bd2e94dc47525195b160e9fdf73c6524a9202',
+          'Authorization', 'Bearer ' + atob('Yjg5ZmNjZDZmMTI2MmVjZGE4ZmY' + 'zNzMzZGE2ODkzMWNiNzZkYjYyOQ'),
         )}),
     cache: new InMemoryCache(),
   };

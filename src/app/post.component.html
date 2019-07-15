@@ -7,17 +7,20 @@
 				<a class="button float-right" routerLink="/">返回主页</a>
 				<a class="button float-right" target="_blank" rel="noopener" href="{{ url }}">查看原始文档</a>
 			</div>
-			<div class="article-meta">
-				<span *ngIf="avatar"><img src="{{ avatar }}"></span>
-				<span>{{ author }}</span>
-				<span>{{ updateTime | date:'mediumDate' }}</span>
+			<div class="article-meta" *ngIf="!author">
+				<span>Loading...</span>
+			</div>
+			<div class="article-meta fade-in" *ngIf="author">
+				<span><img src="{{ avatar }}"></span>
+				<span itemprop="author">{{ author }}</span>
+				<span itemprop="dateModified">{{ updateTime | date:'mediumDate' }}</span>
 			</div>
 		</div>
 	</div>
 </header>
 <div class="container">
 	<section class="article">
-		<div class="content-text" [innerHTML]="html | sanitizeHTML" itemprop="articleBody"></div>
+		<div class="article-text" [innerHTML]="html | sanitizeHTML" itemprop="articleBody"></div>
 		<div class="article-control-bottom">
 			<a class="button" routerLink="/">返回主页</a>
 			<a class="button" href="{{ url }}">查看原始文档</a>

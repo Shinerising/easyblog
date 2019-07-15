@@ -3,10 +3,10 @@ export interface Contents {
     content: {
       entries: Array<Content>
     }
-  }
+  };
 }
 
 export interface Content {
-  name: string,
-  type: string,
+  name: string;
+  type: string;
 }

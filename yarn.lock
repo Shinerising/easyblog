@@ -123,10 +123,10 @@
     "@angular-devkit/core" "8.1.1"
     rxjs "6.4.0"
 
-"@angular/animations@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/animations/download/@angular/animations-8.0.3.tgz#9fc82919b8eb28d4d1a9ff93095907acb2a64e91"
-  integrity sha1-n8gpGbjrKNTRqf+TCVkHrLKmTpE=
+"@angular/animations@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/animations/download/@angular/animations-8.1.1.tgz#ee8222d700db5d56e78dfd2b9d26efc70102964d"
+  integrity sha1-7oIi1wDbXVbnjf0rnSbvxwEClk0=
   dependencies:
     tslib "^1.9.0"
 
@@ -154,17 +154,17 @@
     universal-analytics "^0.4.20"
     uuid "^3.3.2"
 
-"@angular/common@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/common/download/@angular/common-8.0.3.tgz#822b0c2d74ffafd096473596812ad6fca7876c17"
-  integrity sha1-gisMLXT/r9CWRzWWgSrW/KeHbBc=
+"@angular/common@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/common/download/@angular/common-8.1.1.tgz#8094ed2cd4f2cdeb5d074ab7e67fb2411138251b"
+  integrity sha1-gJTtLNTyzetdB0q35n+yQRE4JRs=
   dependencies:
     tslib "^1.9.0"
 
-"@angular/compiler-cli@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/compiler-cli/download/@angular/compiler-cli-8.0.3.tgz#14047c99d034384f92044a77954fbdeb2fbdb604"
-  integrity sha1-FAR8mdA0OE+SBEp3lU+96y+9tgQ=
+"@angular/compiler-cli@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/compiler-cli/download/@angular/compiler-cli-8.1.1.tgz#46fc72a0e62632ba56626ca8e093fb29dc796c4f"
+  integrity sha1-RvxyoOYmMrpWYmyo4JP7Kdx5bE8=
   dependencies:
     canonical-path "1.0.0"
     chokidar "^2.1.1"
@@ -178,50 +178,50 @@
     tslib "^1.9.0"
     yargs "13.1.0"
 
-"@angular/compiler@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/compiler/download/@angular/compiler-8.0.3.tgz#93855340bc029ab15871f6e699dcb8d3ffdfb54d"
-  integrity sha1-k4VTQLwCmrFYcfbmmdy40//ftU0=
+"@angular/compiler@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/compiler/download/@angular/compiler-8.1.1.tgz#0006ff26f69246b811418ed08a71ff6d5b9c6fbc"
+  integrity sha1-AAb/JvaSRrgRQY7QinH/bVucb7w=
   dependencies:
     tslib "^1.9.0"
 
-"@angular/core@8.0.3":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/core/download/@angular/core-8.0.3.tgz#f8a73cbeccce482261949190f1d15d4b0be3c1f2"
-  integrity sha1-+Kc8vszOSCJhlJGQ8dFdSwvjwfI=
+"@angular/core@8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/core/download/@angular/core-8.1.1.tgz#888fb879906a46429ddac7163fe25915ce5a7f8f"
+  integrity sha1-iI+4eZBqRkKd2scWP+JZFc5af48=
   dependencies:
     tslib "^1.9.0"
 
-"@angular/forms@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/forms/download/@angular/forms-8.0.3.tgz#21282ba5616ee1641c2cbec9d34afd1c3482e44d"
-  integrity sha1-ISgrpWFu4WQcLL7J00r9HDSC5E0=
+"@angular/forms@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/forms/download/@angular/forms-8.1.1.tgz#e71d8967b4b9bf0e67a21bcf953bf1bf4eecd1e5"
+  integrity sha1-5x2JZ7S5vw5nohvPlTvxv07s0eU=
   dependencies:
     tslib "^1.9.0"
 
-"@angular/language-service@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/language-service/download/@angular/language-service-8.0.3.tgz#25909e6a9ce5336768e489401bc9c3abb57b4304"
-  integrity sha1-JZCeapzlM2do5IlAG8nDq7V7QwQ=
+"@angular/language-service@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/language-service/download/@angular/language-service-8.1.1.tgz#5940b764fa395b75acd50777721c0aa2914e58c9"
+  integrity sha1-WUC3ZPo5W3Ws1Qd3chwKopFOWMk=
 
-"@angular/platform-browser-dynamic@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/platform-browser-dynamic/download/@angular/platform-browser-dynamic-8.0.3.tgz#8feabfaea1a4d751b3101ef4d6492afeea199803"
-  integrity sha1-j+q/rqGk11GzEB701kkq/uoZmAM=
+"@angular/platform-browser-dynamic@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/platform-browser-dynamic/download/@angular/platform-browser-dynamic-8.1.1.tgz#f3a932e7f0cd0cdce1522ede5651d57ba324c78a"
+  integrity sha1-86ky5/DNDNzhUi7eVlHVe6Mkx4o=
   dependencies:
     tslib "^1.9.0"
 
-"@angular/platform-browser@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/platform-browser/download/@angular/platform-browser-8.0.3.tgz#d19588f2f016bfc5893bb94fc5a7dadb9b5eaacf"
-  integrity sha1-0ZWI8vAWv8WJO7lPxafa25teqs8=
+"@angular/platform-browser@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/platform-browser/download/@angular/platform-browser-8.1.1.tgz#36526e524ba3d125c0508beef3a3290d85f7d515"
+  integrity sha1-NlJuUkuj0SXAUIvu86MpDYX31RU=
   dependencies:
     tslib "^1.9.0"
 
-"@angular/router@~8.0.0":
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/@angular/router/download/@angular/router-8.0.3.tgz#7e9e908b9c19753d275f2ff18699a7ec13eaff1e"
-  integrity sha1-fp6Qi5wZdT0nXy/xhpmn7BPq/x4=
+"@angular/router@~8.1.1":
+  version "8.1.1"
+  resolved "https://registry.npm.taobao.org/@angular/router/download/@angular/router-8.1.1.tgz#05edb0f49dab0bbf896a823cc52fd35de9ea8b85"
+  integrity sha1-Be2w9J2rC7+JaoI8xS/TXenqi4U=
   dependencies:
     tslib "^1.9.0"
 
@@ -360,6 +360,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/highlight.js@^9.12.3":
+  version "9.12.3"
+  resolved "https://registry.npm.taobao.org/@types/highlight.js/download/@types/highlight.js-9.12.3.tgz#b672cfaac25cbbc634a0fd92c515f66faa18dbca"
+  integrity sha1-tnLPqsJcu8Y0oP2SxRX2b6oY28o=
+
 "@types/jasmine@*", "@types/jasmine@~3.3.8":
   version "3.3.13"
   resolved "https://registry.npm.taobao.org/@types/jasmine/download/@types/jasmine-3.3.13.tgz#d5daabb0af47bcddee40597acf6e804433bab439"
@@ -411,6 +416,11 @@
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/@types/source-list-map/download/@types/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha1-AHiDYGP/rxdBI0m7o2QIfgrALsk=
+
+"@types/systemjs@^0.20.6":
+  version "0.20.6"
+  resolved "https://registry.npm.taobao.org/@types/systemjs/download/@types/systemjs-0.20.6.tgz#79838d2b4bce9c014330efa0b4c7b9345e830a72"
+  integrity sha1-eYONK0vOnAFDMO+gtMe5NF6DCnI=
 
 "@types/webpack-sources@^0.1.5":
   version "0.1.5"
@@ -3095,6 +3105,11 @@ hash.js@^1.0.0, hash.js@^1.0.3:
   dependencies:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
+
+highlight.js@^9.15.8:
+  version "9.15.8"
+  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.15.8.tgz#f344fda123f36f1a65490e932cf90569e4999971"
+  integrity sha1-80T9oSPzbxplSQ6TLPkFaeSZmXE=
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -6384,6 +6399,11 @@ symbol-observable@1.2.0, symbol-observable@^1.0.2:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
+
+systemjs@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.npm.taobao.org/systemjs/download/systemjs-4.0.2.tgz#9ccab407bb1e7ef774e0a8e6ebab1a2104045585"
+  integrity sha1-nMq0B7sefvd04Kjm66saIQQEVYU=
 
 tapable@^1.0.0, tapable@^1.1.0:
   version "1.1.3"

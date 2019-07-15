@@ -15,7 +15,7 @@ export class HttpService {
   }
 
   private get<T>(url: string, options?: object): Promise<T> {
-    return this.http.get<T>(url,options)
+    return this.http.get<T>(url, options)
       .toPromise()
       .catch(error => {
         return Promise.reject(error.message || error);
