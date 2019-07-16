@@ -1,7 +1,7 @@
 <article itemscope itemtype="http://schema.org/Article">
 <header>
 	<div class="container">
-		<div class="article-header">
+		<div class="article-header" *ngIf="!error">
 			<h1>{{ header }}</h1>
 			<div class="article-control float-right">
 				<a class="button float-right" routerLink="/">返回主页</a>
@@ -20,22 +20,19 @@
 </header>
 <div class="container">
 	<section class="article">
-		<div class="article-text" [innerHTML]="html | sanitizeHTML" itemprop="articleBody"></div>
-		<div class="article-control-bottom">
-			<a class="button" routerLink="/">返回主页</a>
-			<a class="button" href="{{ url }}">查看原始文档</a>
-		</div>
-	</section>
-	<section class="article" *ngIf="!html">
-		<div>
-			<p class="loading">
-			</p>
+		<div class="article-text" *ngIf="html" [innerHTML]="html | sanitizeHTML" itemprop="articleBody"></div>
+		<div class="article-text" *ngIf="!html">
+			<p class="loading"></p>
 			<p>
 				<span class="loading"></span>
 				<span class="loading"></span>
 				<span class="loading"></span>
 				<span class="loading"></span>
 			</p>
+		</div>
+		<div class="article-control-bottom">
+			<a class="button" routerLink="/">返回主页</a>
+			<a class="button" href="{{ url }}">查看原始文档</a>
 		</div>
 	</section>
 </div>

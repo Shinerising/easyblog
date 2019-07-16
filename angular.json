@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "blog": {
+    "easyblog": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/blog",
+            "outputPath": "dist/easyblog",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "blog:build"
+            "browserTarget": "easyblog:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "blog:build:production"
+              "browserTarget": "easyblog:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blog:build"
+            "browserTarget": "easyblog:build"
           }
         },
         "test": {
@@ -105,15 +105,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "blog:serve"
+            "devServerTarget": "easyblog:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "blog:serve:production"
+              "devServerTarget": "easyblog:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "blog"
+  "defaultProject": "easyblog"
 }

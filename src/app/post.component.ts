@@ -18,7 +18,6 @@ import gql from 'graphql-tag';
 export class PostComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
-  public commitList: Array<Commit>;
   public header: string;
   public author: string;
   public updateTime: Date;
@@ -26,6 +25,7 @@ export class PostComponent implements OnInit, OnDestroy {
   public html: string;
   public email: string;
   public avatar: string;
+  public error: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -57,13 +57,18 @@ export class PostComponent implements OnInit, OnDestroy {
   private async LoadCommits(file: string) {
     const response = await this.apollo.query<Commits>({query : gql(this.config.getCommitQuery(file))}).toPromise();
     const commits: Commits = response.data;
-    this.commitList = commits.repo.content.history.edges;
-    this.author = this.commitList[0].commit.committer.name;
-    this.updateTime = this.commitList[0].commit.committer.date;
-    this.email = this.commitList[0].commit.committer.email;
-    this.avatar = this.commitList[0].commit.committer.avatarUrl;
-
-    this.url = this.commitList[0].commit.commitUrl;
+    const commitList = commits.repo.content.history.edges;
+    if (commitList && commitList.length > 0) {
+      const committer = commitList[0].commit.committer;
+      this.author = committer.name;
+      this.updateTime = committer.date;
+      this.email = committer.email;
+      this.avatar = committer.avatarUrl;
+      this.url = this.config.getFileURL(file);
+      this.error = false;
+    } else {
+      this.error = true;
+    }
   }
 
   private async LoadArticle(file: string) {

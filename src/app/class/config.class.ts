@@ -28,6 +28,9 @@ export class AppConfig implements Config {
   public getRepoURL(): string {
     return `https://github.com/${this.User}/${this.Repo}`;
   }
+  public getFileURL(file: string): string {
+    return `https://github.com/${this.User}/${this.Repo}/blob/master/${this.Path}/${file}`;
+  }
   public getContentQuery(): string {
     return `
       query getContent {
