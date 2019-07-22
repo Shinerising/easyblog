@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { AppConfig } from './class/config.class';
+import { ConfigService } from './service/config.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(
     @Inject(DOCUMENT) private document,
-    private config: AppConfig) {
+    private config: ConfigService) {
       this.header = config.Title;
       this.url = config.getRepoURL();
       if (config.Theme) {

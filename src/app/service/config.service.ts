@@ -10,8 +10,10 @@ export interface Config {
   Theme: string;
 }
 
-@Injectable()
-export class AppConfig implements Config {
+@Injectable({
+  providedIn: 'root',
+})
+export class ConfigService implements Config {
   public User: string;
   public Repo: string;
   public Path: string;

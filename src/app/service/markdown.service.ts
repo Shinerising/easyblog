@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { AppConfig } from '../class/config.class';
+import { ConfigService } from '../service/config.service';
 import * as marked from 'marked';
 import * as hljs from 'highlight.js/lib/highlight';
 
@@ -25,7 +25,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
 export class MarkDownService {
 
   public constructor(
-    private config: AppConfig) {
+    private config: ConfigService) {
     hljs.registerLanguage('bash', bash);
     hljs.registerLanguage('cs', cs);
     hljs.registerLanguage('cpp', cpp);

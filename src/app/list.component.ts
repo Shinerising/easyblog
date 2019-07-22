@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Contents, Content } from './interface/content.interface';
-import { AppConfig } from './class/config.class';
+import { ConfigService } from './service/config.service';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
@@ -17,7 +17,7 @@ export class ListComponent {
   constructor(
     private title: Title,
     private apollo: Apollo,
-    private config: AppConfig) {
+    private config: ConfigService) {
       this.title.setTitle(config.Title);
       this.imageRootUri = config.getRAWRoot();
       this.LoadContents();

@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { Commits, Commit } from './interface/commit.interface';
 import { FileNamePipe } from './pipe/filename.pipe';
 import { Apollo } from 'apollo-angular';
-import { AppConfig } from './class/config.class';
+import { ConfigService } from './service/config.service';
 import { MarkDownService } from './service/markdown.service';
 import gql from 'graphql-tag';
 
@@ -34,7 +34,7 @@ export class PostComponent implements OnInit, OnDestroy {
     private title: Title,
     private apollo: Apollo,
     private markdown: MarkDownService,
-    private config: AppConfig) {
+    private config: ConfigService) {
   }
 
   ngOnInit(): void {
@@ -56,7 +56,7 @@ export class PostComponent implements OnInit, OnDestroy {
 
   private async LoadCommits(file: string) {
     const response = await this.apollo.query<Commits>({query : gql(this.config.getCommitQuery(file))}).toPromise();
-    const commits: Commits = response.data;
+    const commits = response.data;
     const commitList = commits.repo.content.history.edges;
     if (commitList && commitList.length > 0) {
       const committer = commitList[0].commit.committer;

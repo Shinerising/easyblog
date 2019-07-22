@@ -12,7 +12,7 @@ import { SanitizehtmlPipe } from './pipe/sanitize.pipe';
 
 import { GraphQLModule } from './graphql.module';
 
-import { AppConfig } from './class/config.class';
+import { ConfigService } from './service/config.service';
 
 @NgModule({
   imports: [
@@ -29,8 +29,8 @@ import { AppConfig } from './class/config.class';
     SanitizehtmlPipe
   ],
   providers: [
-    AppConfig,
-    { provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.loadConfig(), deps: [AppConfig], multi: true }
+    ConfigService,
+    { provide: APP_INITIALIZER, useFactory: (config: ConfigService) => () => config.loadConfig(), deps: [ConfigService], multi: true }
   ],
   bootstrap: [AppComponent]
 })
