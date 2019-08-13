@@ -81,13 +81,13 @@ export class ConfigService implements Config {
   }
 
   public async loadConfig() {
-      const http = this.injector.get(HttpClient);
-      const config = await http.get<Config>('./assets/config.json').toPromise();
-      this.User = config.User || this.User;
-      this.Repo = config.Repo || config.Repo;
-      this.Path = config.Path || config.Path;
-      this.Title = config.Title || config.Title;
-      this.RAWRoot = config.RAWRoot || config.RAWRoot;
-      this.Theme = config.Theme || config.Theme;
+    const http = this.injector.get(HttpClient);
+    const config = await http.get<Config>('./assets/config.json').toPromise();
+    this.User = config.User || this.User;
+    this.Repo = config.Repo || this.Repo;
+    this.Path = config.Path || this.Path;
+    this.Title = config.Title || this.Title;
+    this.RAWRoot = config.RAWRoot || this.RAWRoot;
+    this.Theme = config.Theme || this.Theme;
   }
 }
