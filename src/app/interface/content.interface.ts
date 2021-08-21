@@ -9,4 +9,6 @@ export interface Contents {
 export interface Content {
   name: string;
   type: string;
+  oid: string;
+  commitedDate: Date;
 }

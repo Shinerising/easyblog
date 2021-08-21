@@ -1,4 +1,4 @@
-import {Apollo, gql} from 'apollo-angular';
+import { Apollo, gql } from 'apollo-angular';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -6,6 +6,7 @@ import { HttpService } from './service/http.service';
 import { Title } from '@angular/platform-browser';
 import { Commits, Commit } from './interface/commit.interface';
 import { FileNamePipe } from './pipe/filename.pipe';
+import { firstValueFrom } from 'rxjs';
 
 import { ConfigService } from './service/config.service';
 import { MarkDownService } from './service/markdown.service';
@@ -56,7 +57,7 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   private async LoadCommits(file: string) {
-    const response = await this.apollo.query<Commits>({query : gql(this.config.getCommitQuery(file))}).toPromise();
+    const response = await firstValueFrom(this.apollo.query<Commits>({ query: gql(this.config.getCommitQuery(file)) }));
     const commits = response.data;
     const commitList = commits.repo.content.history.edges;
     if (commitList && commitList.length > 0) {

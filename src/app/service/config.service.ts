@@ -1,5 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 export interface Config {
   User: string;
@@ -42,6 +43,7 @@ export class ConfigService implements Config {
               entries {
                 name
                 type
+                oid
               }
             }
           }
@@ -59,6 +61,7 @@ export class ConfigService implements Config {
               history(path: "${path}", first:1) {
                 edges {
                   commit: node {
+                    oid
                     commitUrl
                     committedDate
                     committer {
@@ -82,7 +85,7 @@ export class ConfigService implements Config {
 
   public async loadConfig() {
     const http = this.injector.get(HttpClient);
-    const config = await http.get<Config>('./assets/config.json').toPromise();
+    const config = await firstValueFrom(http.get<Config>('./assets/config.json'));
     this.User = config.User || this.User;
     this.Repo = config.Repo || this.Repo;
     this.Path = config.Path || this.Path;

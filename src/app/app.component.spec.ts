@@ -25,21 +25,21 @@ describe('AppComponent', () => {
   });
 
   it(`should have header`, () => {
-    const config = TestBed.get(ConfigService);
+    const config = TestBed.inject(ConfigService);
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.header).toEqual(config.Title);
   });
 
   it(`should have url`, () => {
-    const config = TestBed.get(ConfigService);
+    const config = TestBed.inject(ConfigService);
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.url).toEqual(config.getRepoURL());
   });
 
   it('should render title in a h1 tag', () => {
-    const config = TestBed.get(ConfigService);
+    const config = TestBed.inject(ConfigService);
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
@@ -47,7 +47,7 @@ describe('AppComponent', () => {
   });
 
   it('should add custom stylesheet', () => {
-    const config = TestBed.get(ConfigService);
+    const config = TestBed.inject(ConfigService);
     config.Theme = 'dark';
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

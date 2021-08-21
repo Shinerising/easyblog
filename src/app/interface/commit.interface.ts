@@ -1,5 +1,6 @@
 export interface Commit {
   commit: {
+    oid: string;
     commitUrl: string,
     committedDate: Date,
     committer: {
