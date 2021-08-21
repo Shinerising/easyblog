@@ -1,9 +1,10 @@
+import {Apollo, gql} from 'apollo-angular';
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Contents, Content } from './interface/content.interface';
 import { ConfigService } from './service/config.service';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+
+
 
 @Component({
   selector: 'app-list',

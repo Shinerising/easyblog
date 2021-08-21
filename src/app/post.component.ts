@@ -1,3 +1,4 @@
+import {Apollo, gql} from 'apollo-angular';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -5,10 +6,10 @@ import { HttpService } from './service/http.service';
 import { Title } from '@angular/platform-browser';
 import { Commits, Commit } from './interface/commit.interface';
 import { FileNamePipe } from './pipe/filename.pipe';
-import { Apollo } from 'apollo-angular';
+
 import { ConfigService } from './service/config.service';
 import { MarkDownService } from './service/markdown.service';
-import gql from 'graphql-tag';
+
 
 @Component({
   selector: 'app-post',

@@ -1,10 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { ConfigService } from '../service/config.service';
-import * as marked from 'marked';
-import * as hljs from 'highlight.js/lib/highlight';
+import marked from 'marked';
+import hljs from 'highlight.js';
 
 import bash from 'highlight.js/lib/languages/bash';
-import cs from 'highlight.js/lib/languages/cs';
+import cs from 'highlight.js/lib/languages/csharp';
 import cpp from 'highlight.js/lib/languages/cpp';
 import css from 'highlight.js/lib/languages/css';
 import xml from 'highlight.js/lib/languages/xml';
